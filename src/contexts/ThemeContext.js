@@ -16,12 +16,20 @@ class ThemeContextProvider extends Component {
       bg: '#555'
     }
   };
+
+  toggleTheme = () => {
+    this.setState({
+      isLightTheme: !this.state.isLightTheme
+    });
+  };
   render() {
     // console.log(this.state);
     return (
       // provide the children components within the specific context with a value in this case the state
       // use the provider method of the declared specific context ie ThemeContext
-      <ThemeContext.Provider value={{ ...this.state }}>
+      <ThemeContext.Provider
+        value={{ ...this.state, toggleTheme: this.toggleTheme }}
+      >
         {this.props.children}
       </ThemeContext.Provider>
     );
