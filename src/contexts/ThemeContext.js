@@ -1,6 +1,6 @@
 import React, { Component, createContext } from 'react';
 
-export const ThemeContext = createContext();
+export const ThemeContext = createContext(); //set variable to be a context
 
 class ThemeContextProvider extends Component {
   state = {
@@ -17,7 +17,10 @@ class ThemeContextProvider extends Component {
     }
   };
   render() {
+    // console.log(this.state);
     return (
+      // provide the children components within the specific context with a value in this case the state
+      // use the provider method of the declared specific context ie ThemeContext
       <ThemeContext.Provider value={{ ...this.state }}>
         {this.props.children}
       </ThemeContext.Provider>
